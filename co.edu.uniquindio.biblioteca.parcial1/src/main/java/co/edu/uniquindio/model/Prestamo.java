@@ -1,15 +1,17 @@
 package co.edu.uniquindio.model;
 
+import co.edu.uniquindio.model.builder.PrestamoBuilder;
+
 import java.time.LocalDate;
-import java.util.Collection;
-import java.util.List;
+import java.util.ListResourceBundle;
 
 public class Prestamo {
-    public LocalDate fechaPrestamo;
-    public LocalDate fechaDevolucion;
-    public List<Libro> ListaLibrosAsociados;
-    public List<Miembro> ListaMiembrosAsociados;
 
+    private Miembro miembro;
+    private Bibliotecario bibliotecario;
+    private Libro libro;
+    private LocalDate fechaPrestamo;
+    private LocalDate fechaDevolucion;
     /**
      * Constructor
      * @param fechaPrestamo
@@ -21,15 +23,17 @@ public class Prestamo {
     }
     public Prestamo() {}
 
+    public static PrestamoBuilder builder(){
+        return new PrestamoBuilder();
+    }
     /**
      * Asociar Libro
      * @param libro
      */
-    public void asociarLibro(Libro libro,List<Libro> ListaLibrosPrestados) {
-        if (ListaLibrosAsociados.contains(libro)) {System.out.print("el libro ya esta en el prestamo");}
-        if (ListaLibrosAsociados.size()>15){System.out.print("La cantidad de libros en el prestamo es muy grande");}
-        else{ListaLibrosAsociados.add(libro);
-            ListaLibrosPrestados.add(libro);}
+    public void asociarLibro(Libro libro) {
+        if (libro != null) {
+            this.libro = libro;
+        }
     }
 
     /**
@@ -37,8 +41,9 @@ public class Prestamo {
      * @param miembro
      */
     public void asociarMiembro(Miembro miembro) {
-        if (ListaMiembrosAsociados == null) {ListaMiembrosAsociados.add(miembro);}
-        else{System.out.println("El prestamo ya esta asociado a un miembro");}
+        if (miembro != null) {
+            this.miembro = miembro;
+        }
     }
 
     /**
@@ -48,6 +53,10 @@ public class Prestamo {
     public LocalDate getFechaPrestamo() {return fechaPrestamo;}
     public LocalDate getFechaDevolucion() {return fechaDevolucion;}
     public void setFechaDevolucion(){this.fechaDevolucion=fechaDevolucion;}
-    public Collection<Libro> getListaLibrosAsociados() {return ListaLibrosAsociados;}
-    public Collection<Miembro> getListaMiembrosAsociados() {return ListaMiembrosAsociados;}
+    public Libro getLibro() {
+        return libro;
+    }
+    public Miembro getMiembro() {
+        return miembro;
+    }
 }

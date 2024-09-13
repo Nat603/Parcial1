@@ -1,10 +1,10 @@
 package co.edu.uniquindio.model;
 
-public abstract class Empleado  {
-    public String nombre;
-    public int edad;
-    public String cedula;
-    public String idEmpleado;
+public class Empleado {
+    private String nombre;
+    private int edad;
+    private String cedula;
+    private String idEmpleado;
 
     /**
      * Constructor

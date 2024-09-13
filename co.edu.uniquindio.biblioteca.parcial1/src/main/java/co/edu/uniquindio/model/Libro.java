@@ -1,5 +1,7 @@
 package co.edu.uniquindio.model;
 
+import co.edu.uniquindio.model.builder.LibroBuilder;
+
 public class Libro {
     private String titulo;
     private String autor;
@@ -21,12 +23,12 @@ public class Libro {
         this.ISBN = ISBN;
         this.estado = estado;
     }
-
+    public static LibroBuilder builder(){
+        return new LibroBuilder();
+    }
     /**
      * Gets y Sets
-     * @return titulo
-     *
-     *
+     * @return
      */
     public String getTitulo() {return titulo;}
     public String getAutor() {return autor;}
@@ -37,4 +39,5 @@ public class Libro {
     public void setISBN(int ISBN) {this.ISBN = ISBN;}
     public void prestar(){this.estado = false;}
     public void terminarPrestamo(){this.estado = true;}
+
 }

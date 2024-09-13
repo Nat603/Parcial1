@@ -1,17 +1,35 @@
 package co.edu.uniquindio;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import co.edu.uniquindio.model.Bibliotecario;
+import co.edu.uniquindio.model.Empleado;
+import co.edu.uniquindio.model.Miembro;
+import co.edu.uniquindio.model.builder.BibliotecarioBuilder;
+import co.edu.uniquindio.model.builder.EmpleadoBuilder;
+import co.edu.uniquindio.model.builder.MiembroBuilder;
+
+import javax.swing.*;
+
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
-
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
+        ejemplo();
     }
+    public static void ejemplo() {
+        Empleado empleadoBasico = new EmpleadoBuilder()
+                .nombre("Pepe")
+                .cedula("1010101")
+                .edad(10)
+                .idEmpleado("000001")
+                .build();
+
+        Bibliotecario bibliotecario = new BibliotecarioBuilder()
+                .nombre("Pepe")
+                .cedula("1010101")
+                .edad(10)
+                .idEmpleado("000001")
+                .horasdeTrabajo(30)
+                .build();
+        JOptionPane.showMessageDialog(null, "Bibliotecario: " + bibliotecario.getHorasDeTrabajo() +
+                "\n Empleado basico: " + empleadoBasico.getNombre());
+    }
+
 }

@@ -1,5 +1,7 @@
 package co.edu.uniquindio.model;
 
+import co.edu.uniquindio.model.builder.MiembroBuilder;
+
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -18,7 +20,9 @@ public class Miembro {
         this.idMiembro = idMiembro;
         prestamos = new ArrayList<Miembro>();
     }
-
+    public static MiembroBuilder builder(){
+        return new MiembroBuilder();
+    }
     /**
      * Gets y Sets
      * @return
