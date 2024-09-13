@@ -2,6 +2,7 @@ package co.edu.uniquindio.factory;
 
 import co.edu.uniquindio.model.*;
 import co.edu.uniquindio.model.builder.BibliotecarioBuilder;
+import co.edu.uniquindio.services.ICrudArticuloCientifico;
 import co.edu.uniquindio.services.ICrudMiembro;
 import co.edu.uniquindio.services.ICrudPrestamo;
 
@@ -9,7 +10,7 @@ import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
 
-public class ModelFactory implements ICrudMiembro, ICrudPrestamo {
+public class ModelFactory implements ICrudMiembro, ICrudPrestamo, ICrudArticuloCientifico {
     private static ModelFactory instance;
     private static Biblioteca biblioteca;
 
@@ -116,5 +117,30 @@ public class ModelFactory implements ICrudMiembro, ICrudPrestamo {
         List<Object> parametros = Arrays.asList(bibliotecario1,bibliotecario2,miembro1,miembro2,miembro3,miembro4,miembro5
                 ,libro1,libro2,libro3,libro4,libro5,libro6,libro7,libro8,libro9,libro10);
         parametros.forEach(biblioteca::agregarAutomatico);
+    }
+
+    @Override
+    public boolean crearArticuloCientifico(String idArticuloCientifico, String editorial, int numeroPaginas, boolean estado, String descripcion) {
+        return false;
+    }
+
+    @Override
+    public boolean eliminarArticuloCientifico(String idArticuloCientifico) {
+        return false;
+    }
+
+    @Override
+    public boolean modificarArticuloCientifico(String idArticuloCientifico, String editorial, int numeroPaginas) {
+        return false;
+    }
+
+    @Override
+    public ArticuloCientifico getArticuloCientifico(String idArticuloCientifico) {
+        return null;
+    }
+
+    @Override
+    public List<ArticuloCientifico> listarArticuloCientifico() {
+        return List.of();
     }
 }

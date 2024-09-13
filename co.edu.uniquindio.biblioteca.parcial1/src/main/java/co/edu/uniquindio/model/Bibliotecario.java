@@ -45,5 +45,13 @@ public class Bibliotecario extends Empleado implements IGestionInventario {
     public void setHorasDeTrabajo(int horasDeTrabajo) {
         this.horasDeTrabajo = horasDeTrabajo;
     }
+
+    public void numArticulosCientificos(ArticuloCientifico articuloCientifico, List<ArticuloCientifico> listaArticulosCientificos) {
+        for(ArticuloCientifico articuloCientifico1: listaArticulosCientificos) {
+        }
+    }
+
+
 }
+
 

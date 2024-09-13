@@ -4,7 +4,7 @@ import co.edu.uniquindio.model.builder.MiembroBuilder;
 
 import java.util.ArrayList;
 import java.util.Collection;
-
+// se utilizo de solid a cada clase se asigna una unica funcion
 public class Miembro {
     private String nombre;
     private String idMiembro;
